@@ -33,16 +33,25 @@ document.addEventListener('DOMContentLoaded', function() {
         'services-link': document.getElementById('services-section'),
         'status-link': document.getElementById('status-section')
     };
+    const logoutModal = document.getElementById('logout-modal');
+    const confirmLogoutBtn = document.getElementById('confirm-logout-btn');
+    const cancelLogoutBtn = document.getElementById('cancel-logout-btn');
+    let currentUser = null;
+
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            links.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-            Object.values(sections).forEach(sec => sec.style.display = 'none');
-            const activeSection = sections[this.id];
-            if (activeSection) activeSection.style.display = 'block';
-            if (this.id === 'status-link' && typeof renderStatus === 'function') renderStatus();
-            if (this.id === 'services-link' && sections['services-link']) sections['services-link'].style.display = 'block';
+            if (this.id === 'logout-link') {
+                logoutModal.style.display = 'flex';
+            } else {
+                links.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                Object.values(sections).forEach(sec => sec.style.display = 'none');
+                const activeSection = sections[this.id];
+                if (activeSection) activeSection.style.display = 'block';
+                if (this.id === 'status-link' && typeof renderStatus === 'function') renderStatus();
+                if (this.id === 'services-link' && sections['services-link']) sections['services-link'].style.display = 'block';
+            }
         });
     });
     // Show profile by default
@@ -186,8 +195,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const newProfileName = document.getElementById('new-profile-name');
     const newProfileMessage = document.getElementById('new-profile-message');
     const avatarUpload = document.getElementById('avatar-upload');
-    let currentUser = null;
-    let profileImageUrl = null;
 
     function updateCard(data) {
         if (data.photoURL) {
@@ -273,6 +280,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    confirmLogoutBtn.addEventListener('click', () => {
+        if (currentUser) {
+            db.collection('profiles').doc(currentUser.uid).get().then(doc => {
+                let role = 'admin';
+                if (doc.exists && doc.data().role) {
+                    role = doc.data().role;
+                }
+                if (typeof logLogoutEvent === 'function') logLogoutEvent(currentUser, role);
+                return auth.signOut();
+            }).then(() => {
+                window.location.href = 'hompage.html';
+            });
+        } else {
+            window.location.href = 'hompage.html';
+        }
+    });
+    cancelLogoutBtn.addEventListener('click', () => logoutModal.style.display = 'none');
+    logoutModal.addEventListener('click', e => {
+        if (e.target === logoutModal) logoutModal.style.display = 'none';
+    });
     auth.onAuthStateChanged(function(user) {
         if (user) {
             currentUser = user;
