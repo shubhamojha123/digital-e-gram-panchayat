@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E Gram Panchayat - Digital Village Governance</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#help">Help</a></li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <h1><i class="fas fa-village"></i> E-Gram Panchayat</h1>
+      </div>
+      <div class="search-section">
+        <div class="search-box">
+          <input type="text" id="serviceSearch" placeholder="Search services..." autocomplete="off">
+          <div id="searchSuggestions" class="search-suggestions"></div>
+          <button id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Image Slider -->
+  <section class="hero-section">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide active">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Village Development">
+          <div class="slide-content">
+            <h2>Digital Village Governance</h2>
+            <p>Empowering rural communities through technology</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Community Services">
+          <div class="slide-content">
+            <h2>Community Services</h2>
+            <p>Access government services at your fingertips</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80" alt="Rural Development">
+          <div class="slide-content">
+            <h2>Rural Development</h2>
+            <p>Building sustainable villages for tomorrow</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Digital India">
+          <div class="slide-content">
+            <h2>Digital India Initiative</h2>
+            <p>Connecting every village to the digital world</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slider Navigation -->
+      <div class="slider-nav">
+        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="openLoginModal()">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+      <button class="btn btn-secondary" onclick="openSignupModal()">
+        <i class="fas fa-user-plus"></i> Sign Up
+      </button>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div style="position:relative;">
+            <input type="password" id="loginPassword" placeholder="Enter your password" required style="padding-right:2.5rem;">
+            <span class="toggle-password" data-target="loginPassword" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2rem;color:#888;">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="loginCode">Staff/Admin Code (optional, not for user)</label>
+          <div style="position:relative;">
+            <input type="password" id="loginCode" placeholder="Enter code if you are staff/admin" style="padding-right:2.5rem;">
+            <span class="toggle-password" data-target="loginCode" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2rem;color:#888;">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSignupModal()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <div style="position:relative;">
+            <input type="password" id="registerPassword" placeholder="Enter your password" required style="padding-right:2.5rem;">
+            <span class="toggle-password" data-target="registerPassword" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2rem;color:#888;">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="registerCode">Staff/Admin Code (optional, not for user)</label>
+          <div style="position:relative;">
+            <input type="password" id="registerCode" placeholder="Enter code if you are staff/admin" style="padding-right:2.5rem;">
+            <span class="toggle-password" data-target="registerCode" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2rem;color:#888;">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-secondary">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content Sections -->
+  <main class="main-content">
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>E-Gram Panchayat is a digital initiative to make village-level services more accessible, faster, and transparent for rural citizens. This platform allows villagers to easily apply for essential services such as Birth Certificates, Water Connections, Aadhaar Card updates, and Ration Cards — all from the comfort of their home or local center.</p>
+        <ul style="max-width:800px;margin:2rem auto 0 auto;text-align:left;font-size:1.1rem;color:#666;line-height:1.7;">
+          <li>Simplify the application process</li>
+          <li>Reduce paperwork and delays</li>
+          <li>Allow users to track their application status online</li>
+          <li>Empower panchayat staff and officers to manage requests efficiently</li>
+        </ul>
+        <p style="margin-top:2rem;font-style:italic;color:#444;font-weight:500;">Our goal is to bridge the gap between technology and rural governance, ensuring that every citizen receives timely services without the need to stand in long queues or visit multiple offices.</p>
+        <p style="margin-top:1.5rem;font-weight:600;color:#333;">"Digital India starts from the village – and E-Gram Panchayat is a step toward that future."</p>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+          <a href="service-birth-certificate.html" class="service-card" style="text-decoration:none;color:inherit;">
+            <i class="fas fa-baby"></i>
+            <h3>Birth Certificate</h3>
+            <p>Apply for a birth certificate</p>
+          </a>
+          <a href="service-water-connection.html" class="service-card" style="text-decoration:none;color:inherit;">
+            <i class="fas fa-tint"></i>
+            <h3>Water Connection</h3>
+            <p>Request for new water supply</p>
+          </a>
+          <a href="service-aadhaar-card.html" class="service-card" style="text-decoration:none;color:inherit;">
+            <i class="fas fa-id-card"></i>
+            <h3>Aadhaar Card Application</h3>
+            <p>Apply for Aadhaar enrollment or update info</p>
+          </a>
+          <a href="service-ration-card.html" class="service-card" style="text-decoration:none;color:inherit;">
+            <i class="fas fa-id-card"></i>
+            <h3>Ration Card</h3>
+            <p>Apply for a new ration card</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+91 7208681275</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@egrampanchayat.gov.in</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Ministry of Panchayati Raj, New Delhi</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="help" class="section">
+      <div class="container">
+        <h2>Help</h2>
+        <p>If you need any assistance or have queries, please fill out the form below. We are here to help you with your requests and questions regarding E-Gram Panchayat services.</p>
+        <form id="helpForm" style="max-width:500px;margin:2rem auto 0 auto;">
+          <div class="form-group">
+            <label for="helpMessage">Your Message</label>
+            <textarea id="helpMessage" placeholder="Type your feedback or query here..." required style="width:100%;min-height:100px;padding:0.8rem;border:2px solid #e1e5e9;border-radius:8px;font-size:1rem;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 E-Gram Panchayat. All rights reserved.</p>
+    </div>
+  </footer>
+
+<!-- Firebase SDKs for plain HTML + JS apps -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

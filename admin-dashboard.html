@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - E-Gram Panchayat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="admin-dashboard.js" defer></script>
+</head>
+<body>
+    <header class="dashboard-header" style="position:relative;">
+        <div class="dashboard-title">E-Gram Panchayat</div>
+        <form id="dashboard-search-form" style="position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);background:#ede9f7;padding:0.2rem 0.7rem 0.2rem 1.2rem;border-radius:2rem;display:flex;align-items:center;box-shadow:0 2px 8px rgba(78,84,200,0.07);">
+            <input type="text" id="dashboardServiceSearch" placeholder="Search services..." style="border:none;background:transparent;font-size:1.1rem;padding:0.6rem 0;outline:none;width:180px;">
+            <button type="button" id="dashboardServiceSearchBtn" style="background:#7b6fd6;border:none;border-radius:50%;width:2.1rem;height:2.1rem;display:flex;align-items:center;justify-content:center;margin-left:0.5rem;cursor:pointer;">
+                <i class="fas fa-search" style="color:#fff;font-size:1.1rem;"></i>
+            </button>
+        </form>
+    </header>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#profile" id="profile-link" class="active"><i class="fas fa-user"></i><span class="nav-text"> Profile</span></a></li>
+                    <li><a href="#services" id="services-link"><i class="fas fa-cogs"></i><span class="nav-text"> Services</span></a></li>
+                    <li><a href="#status" id="status-link"><i class="fas fa-list-alt"></i><span class="nav-text"> Status</span></a></li>
+                    <li><a href="#logout" id="logout-link"><i class="fas fa-sign-out-alt"></i><span class="nav-text"> Logout</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div id="logout-modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);align-items:center;justify-content:center;">
+          <div style="background:#fff;padding:2rem 2.5rem;border-radius:10px;box-shadow:0 6px 32px rgba(0,0,0,0.15);min-width:270px;text-align:center;position:relative;">
+            <h3 style="margin-bottom:1.5rem;">Do you want to logout?</h3>
+            <button id="confirm-logout-btn" style="background:#e53935;color:#fff;border:none;padding:0.7rem 2.2rem;border-radius:5px;font-size:1.1rem;font-weight:600;cursor:pointer;">Logout</button>
+            <button id="cancel-logout-btn" style="background:#eee;color:#444;border:none;padding:0.7rem 1.5rem;border-radius:5px;font-size:1.05rem;font-weight:500;cursor:pointer;margin-left:1rem;">Cancel</button>
+            </div>
+        </div>
+        <main class="dashboard-main">
+            <section id="profile-section">
+                <div class="profile-grid-container">
+                    <div class="profile-form-container">
+                        <div class="profile-header">
+                            <h2>Profile</h2>
+                            <button id="change-profile-btn" class="change-btn" style="display: none;">Change</button>
+                        </div>
+                        <form id="profile-form" autocomplete="off">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required autocomplete="nope">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required autocomplete="nope">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input list="state-list" id="state" name="state" required placeholder="Select or type state" autocomplete="off123">
+                                <datalist id="state-list">
+                                    <option value="Andhra Pradesh"></option>
+                                    <option value="Arunachal Pradesh"></option>
+                                    <option value="Assam"></option>
+                                    <option value="Bihar"></option>
+                                    <option value="Chhattisgarh"></option>
+                                    <option value="Goa"></option>
+                                    <option value="Gujarat"></option>
+                                    <option value="Haryana"></option>
+                                    <option value="Himachal Pradesh"></option>
+                                    <option value="Jharkhand"></option>
+                                    <option value="Karnataka"></option>
+                                    <option value="Kerala"></option>
+                                    <option value="Madhya Pradesh"></option>
+                                    <option value="Maharashtra"></option>
+                                    <option value="Manipur"></option>
+                                    <option value="Meghalaya"></option>
+                                    <option value="Mizoram"></option>
+                                    <option value="Nagaland"></option>
+                                    <option value="Odisha"></option>
+                                    <option value="Punjab"></option>
+                                    <option value="Rajasthan"></option>
+                                    <option value="Sikkim"></option>
+                                    <option value="Tamil Nadu"></option>
+                                    <option value="Telangana"></option>
+                                    <option value="Tripura"></option>
+                                    <option value="Uttar Pradesh"></option>
+                                    <option value="Uttarakhand"></option>
+                                    <option value="West Bengal"></option>
+                                    <option value="Andaman and Nicobar Islands"></option>
+                                    <option value="Chandigarh"></option>
+                                    <option value="Dadra and Nagar Haveli and Daman and Diu"></option>
+                                    <option value="Delhi"></option>
+                                    <option value="Jammu and Kashmir"></option>
+                                    <option value="Ladakh"></option>
+                                    <option value="Lakshadweep"></option>
+                                    <option value="Puducherry"></option>
+                                </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label for="region">Region</label>
+                                <input type="text" id="region" name="region" required autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="village">Village Name</label>
+                                <input type="text" id="village" name="village" required autocomplete="nope">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3" required autocomplete="off123"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone No</label>
+                                <input type="tel" id="phone" name="phone" required autocomplete="new-password">
+                            </div>
+                            <div class="form-group" id="save-btn-container">
+                                <button type="submit">Save Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="new-profile-card">
+                        <div class="new-profile-avatar" id="new-profile-avatar" style="cursor:pointer;">U</div>
+                        <input type="file" id="avatar-upload" accept="image/*" style="display:none;" />
+                        <h3 id="new-profile-name">Welcome!</h3>
+                        <p id="new-profile-message">Complete your profile to unlock all features.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="services-section" style="display:none;">
+                <h2>Services</h2>
+                <form id="add-service-form" style="margin-bottom:2rem;display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap;justify-content:center;">
+                    <div>
+                        <label for="service-label">Service Name</label><br>
+                        <input type="text" id="service-label" required placeholder="e.g. Birth Certificate" style="padding:0.4rem 0.7rem;border-radius:6px;border:1px solid #ccc;">
+                    </div>
+                    <div>
+                        <label for="service-desc">Description</label><br>
+                        <input type="text" id="service-desc" required placeholder="e.g. Apply for a birth certificate" style="padding:0.4rem 0.7rem;border-radius:6px;border:1px solid #ccc;">
+                    </div>
+                    <div>
+                        <label for="service-icon">Icon (FontAwesome class)</label><br>
+                        <input type="text" id="service-icon" required placeholder="e.g. fas fa-baby" style="padding:0.4rem 0.7rem;border-radius:6px;border:1px solid #ccc;">
+                    </div>
+                    <button type="submit" style="background:#27ae60;color:#fff;padding:0.6rem 1.5rem;border:none;border-radius:6px;font-weight:600;font-size:1rem;cursor:pointer;">Add Service</button>
+                </form>
+                <div id="services-cards-container" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+                    <!-- Service cards will be rendered by JS, with delete buttons for admin -->
+                </div>
+            </section>
+            <section id="status-section" style="display:none;">
+                <h2>Status</h2>
+                <div id="status-list-container" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;"></div>
+            </section>
+        </main>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+</body>
+</html> 

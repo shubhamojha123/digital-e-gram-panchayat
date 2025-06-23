@@ -1,0 +1,32 @@
+/* Service Page Styles */
+.service-detail-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.service-detail-text {
+  flex: 2;
+  min-width: 280px;
+}
+.service-detail-image {
+  flex: 1;
+  min-width: 220px;
+  max-width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(118, 75, 162, 0.10);
+  object-fit: cover;
+  margin-top: 1rem;
+}
+@media (max-width: 900px) {
+  .service-detail-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-detail-image {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 400px;
+  }
+} 

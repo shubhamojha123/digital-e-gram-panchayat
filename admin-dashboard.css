@@ -1,0 +1,455 @@
+/* Admin Dashboard Specific Styles */
+.main-content {
+    padding-top: 100px; /* Adjust based on header height */
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* Dashboard Header Styles */
+.dashboard-header {
+    background: linear-gradient(90deg, #7b8dfb 0%, #8f6ed5 100%);
+}
+
+.dashboard-header .header-content {
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    min-height: 60px;
+}
+
+.dashboard-header .back-link {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-header .back-link-arrow {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.dashboard-header .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+}
+
+.dashboard-header .logo h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Admin dashboard uses the same styles as user dashboard */
+
+/* Paste the entire content of user-dashboard.css here */ 
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fb;
+}
+
+.dashboard-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
+    color: white;
+    height: 60px;
+    padding: 0 2rem;
+}
+
+.dashboard-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    width: max-content;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.back-link {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+}
+.back-link:hover {
+    color: #ffd700;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 200px;
+    background: linear-gradient(180deg, #a18cd1 0%, #6e78ff 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2rem;
+    box-shadow: 2px 0 8px rgba(80,80,160,0.04);
+    transition: width 0.3s ease;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.2s, color 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+    background: rgba(255,255,255,0.08);
+    color: #ffd700;
+    border-left: 4px solid #ffd700;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 2rem 2.5rem;
+    overflow-y: auto;
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.dashboard-main h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #4e54c8;
+}
+
+.dashboard-main p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* Logout Modal Styles */
+#logout-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile Form/Card Styles */
+#profile-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.profile-grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.profile-form-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+#profile-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border: none;
+}
+
+.change-btn {
+    background: transparent;
+    border: 1px solid #4e54c8;
+    color: #4e54c8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.change-btn:hover {
+    background: #4e54c8;
+    color: #fff;
+}
+
+#profile-form {
+    max-width: none;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-self: flex-start;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+#profile-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    display: block;
+}
+
+#profile-form input,
+#profile-form textarea,
+#profile-form select {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+#profile-form input:focus,
+#profile-form textarea:focus,
+#profile-form select:focus {
+    border-color: #4e54c8;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.15);
+    outline: none;
+}
+
+#profile-form button[type="submit"] {
+    background: linear-gradient(90deg, #667eea 0%, #4e54c8 100%);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: 0 2px 6px rgba(78, 84, 200, 0.3);
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    align-self: flex-start;
+}
+#profile-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(78, 84, 200, 0.4);
+}
+
+.new-profile-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.new-profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    color: #4e54c8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem auto;
+    border: 4px solid #fff;
+}
+
+.new-profile-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.new-profile-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.profile-card {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    .sidebar nav ul li a {
+        justify-content: center;
+    }
+    .sidebar .nav-text {
+        display: none;
+    }
+    .dashboard-main {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+    .profile-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 0;
+    }
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sidebar nav ul li a {
+        border-left: none;
+        border-bottom: 4px solid transparent;
+        padding: 1rem;
+    }
+    .sidebar nav ul li a.active,
+    .sidebar nav ul li a:hover {
+        border-bottom: 4px solid #ffd700;
+    }
+    .sidebar .nav-text {
+        display: inline-block;
+    }
+
+    .dashboard-main {
+        margin-left: 0;
+        width: 100%;
+        padding: 1.5rem;
+    }
+    #profile-section {
+        margin-top: 1rem;
+        padding: 1.5rem;
+    }
+    .profile-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+#logout-modal .modal-content {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.15);
+    min-width: 270px;
+    text-align: center;
+    position: relative;
+}
+#confirm-logout-btn {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 2.2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: background 0.2s;
+}
+#confirm-logout-btn:hover {
+    background: #d32f2f;
+}
+#cancel-logout-btn {
+    background: #eee;
+    color: #444;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background 0.2s;
+}
+#cancel-logout-btn:hover {
+    background: #e0e0e0;
+} 
