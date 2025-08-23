@@ -1,6 +1,6 @@
 # Digital E Gram Panchayat
 
-A web application to manage Gram Panchayat services online. Built using HTML, CSS, JS, and Firebase.
+A web application to manage Gram Panchayat services online. Built using HTML, CSS, JS, and Firebase .
 
 ## 👥 Roles
 - **User**: Register, Login, Apply for services, View status, Profile
